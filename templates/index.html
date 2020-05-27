@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Tweet Analyzer</h1>
+    <hr>
+
+    <div class="ml-container">
+
+		<form action="{{ url_for('index')}}" method="POST" >
+
+        <p>Disaster</p>                
+        <div class="form-group">
+            <input type="text" name="key1">
+        </div>
+        <p>Area</p>                
+        <div class="form-group">
+            <input type="text" name="key2">
+        </div>
+        <p>Begin date</p>                
+        <div class="form-group">
+            <input type="date" name="begindate">
+        </div>
+        <p>End date</p>                
+        <div class="form-group">
+            <input type="date" name="enddate">
+        </div>
+        <p>Tweet limit</p>                
+        <div class="form-group">
+            <input type="number"  name="limit" min="1" max="1000000">
+        </div>
+        <br>
+        <div class="form-group">       
+            <input type="submit" class="btn-info" >
+        </div>
+		
+	</form>
+
+</div>
+{% endblock %}

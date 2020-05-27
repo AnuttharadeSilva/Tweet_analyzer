@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <h1>Predictions</h1>
+    <hr>
+    <div class="results">
+        
+        {% if percent[0]>percent[1]%}
+            <h2 >Negative  {{ '%0.2f' % percent[0]|float}}%</h2>
+        {% else %}
+            <h2 >Positive  {{ '%0.2f' % percent[1]|float}}%</h2>
+        {% endif %}
+
+        <table style="width:100%">
+            <tr>
+              <th>Tweet</th>
+              <th>Sentiment</th> 
+            </tr>
+            {% for i in range(number) %}
+                {% if result[i] == 1%}
+                    <tr>
+                        <td>{{ tweets[i] }}</td>
+                        <td>Positive</td>
+                    </tr>
+                {% elif result[i] == 0%}
+                    <tr>
+                        <td>{{ tweets[i] }}</td>
+                        <td>Negative</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+          </table>      
+    </div>
+
+    <hr>
+    <a href = "{{ url_for('index') }}" class="btn btn-default">Go Back</a>
+</div>
+
+{% endblock %}
