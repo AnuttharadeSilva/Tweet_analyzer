@@ -50,11 +50,11 @@ def predict(tweets):
 
     pred =[]
     for k in range(0,len(pred1)):
-        a=[pred1[k],pred4[k],pred5[k]]
+        a=[pred1[k],pred1[k],pred1[k],pred4[k],pred5[k]]
         if a.count(0)> a.count(1):
             pred.append(0)
         else:
             pred.append(1)
 
-    return pred1
+    return pred
 
