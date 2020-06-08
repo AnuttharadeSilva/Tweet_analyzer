@@ -29,12 +29,15 @@ def index():
         tweets = tweepy_streamer.get_tweets(keys,begin_date,end_date,limit)
         #print("time: ",timeit.default_timer() - start_time)
 
-        result = analyzer.predict(tweets)
-        #result = result.tolist()
-        percent = [(result.count(0))/len(result)*100 , (result.count(1))/len(result)*100]
+        if len(tweets)>0:
+            result = analyzer.predict(tweets)
+            #result = result.tolist()
+            percent = [(result.count(0))/len(result)*100 , (result.count(1))/len(result)*100]
 
-        return jsonify({'percent' : percent, 'tweets' : tweets.tolist(), 'predictions' : result})
-        #return render_template('show.html',result=result,tweets=tweets,number=len(tweets),percent=percent)
+            return jsonify({'percent' : percent, 'tweets' : tweets.tolist(), 'predictions' : result})
+            #return render_template('show.html',result=result,tweets=tweets,number=len(tweets),percent=percent)
+        else:
+            return jsonify({'percent' : None, 'tweets' : None, 'predictions' : None})
 
     return render_template('index.html')
     #return jsonify({'message' : 'A POST request is required. GET request recieved!'})
