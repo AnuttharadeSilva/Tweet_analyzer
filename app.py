@@ -4,8 +4,8 @@ from datetime import date
 #import timeit
 
 import analyzer
-import twitter_scraper
-#import tweepy_streamer
+#import twitter_scraper
+import tweepy_streamer
 
 app = Flask(__name__)
 Bootstrap(app)
@@ -25,8 +25,8 @@ def index():
         end_date = date(*map(int, end.split('-')))
 
         #start_time = timeit.default_timer()
-        tweets = twitter_scraper.stream(keys,begin_date,end_date,limit)
-        #tweets = tweepy_streamer.get_tweets(keys,begin_date,end_date,limit)
+        #tweets = twitter_scraper.stream(keys,begin_date,end_date,limit)
+        tweets = tweepy_streamer.get_tweets(keys,begin_date,end_date,limit)
         #print("time: ",timeit.default_timer() - start_time)
 
         result = analyzer.predict(tweets)
@@ -40,4 +40,4 @@ def index():
     #return jsonify({'message' : 'A POST request is required. GET request recieved!'})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0',port=5002)
