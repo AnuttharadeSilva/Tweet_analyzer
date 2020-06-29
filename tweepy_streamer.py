@@ -26,8 +26,9 @@ def get_tweets(search_items, begin_date, end_date, num_tweets):
     df.drop_duplicates(subset = ['tweets'], keep='first', inplace=True)
     df = df.dropna()
     df = df.reset_index(drop=True)
+    tweets = df['tweets']
 
-    return df['tweets']
+    return tweets.tolist()
 
 
 
