@@ -17,6 +17,8 @@ The important files and directories of the repository
         ├── index.html
         ├── show.html
         ├── base.html
+        
+The source code of the trained models can be found [here](https://github.com/AnuttharadeSilva/t_analyzer_model)
 
 ## Getting started
 
