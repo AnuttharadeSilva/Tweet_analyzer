@@ -34,3 +34,8 @@ flask run
 ```
 Navigate to http://localhost:5000/
 
+
+# Sentiment analysis models
+
+https://github.com/AnuttharadeSilva/tweet_analyzer_model
+
